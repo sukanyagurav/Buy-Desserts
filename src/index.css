@@ -30,13 +30,24 @@ body{
   filter: brightness(0) saturate(100%) invert(99%) sepia(99%) saturate(2%) hue-rotate(142deg) brightness(104%) contrast(100%);
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
+
 .cart_list::-webkit-scrollbar {
   display: none;
 }
 
-/* Hide scrollbar for IE, Edge and Firefox */
 .cart_list {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;  
+  scrollbar-width: none;  
+}
+.dessert_image{
+  background: #eee;
+    background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+    border-radius: 5px;
+    background-size: 200% 100%;
+  animation: 1.5s shine linear infinite;
+}
+@keyframes shine {
+  to {
+    background-position-x: -200%;
+  }
 }

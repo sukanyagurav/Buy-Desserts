@@ -39,8 +39,7 @@ Your users should be able to:
 ## Deploying your project
 
 - [GitHub Pages](https://github.com/sukanyagurav/Buy-Desserts)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
+- [Netlify](https://buydesserts5867.netlify.app/)
 
 
 

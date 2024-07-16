@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import useDesertSore from '../store/desertStore'
 import {motion} from 'framer-motion'
 const Dessert = ({image,name,category,price,id}) => {
@@ -9,7 +9,7 @@ const Dessert = ({image,name,category,price,id}) => {
       removeItem:state.removeItem
     }))
     const item =getItemQuantity(id)
-
+    const [imageLoad,setImageLoad] = useState(true)
   return (
     <motion.div
     variants={{
@@ -18,11 +18,12 @@ const Dessert = ({image,name,category,price,id}) => {
     }} className='relative' >
         <div className={`overflow-hidden rounded-lg drop-shadow-lg ${item.length > 0 && 'border-[--red] border-4'}`}>
           <picture >
-            <source media="(min-width:950px)" srcSet={image.desktop}/>
+            <source media="(min-width:900px)" srcSet={image.desktop}/>
             <source media="(min-width:800px)" srcSet={image.tablet}/>
-            <source media="(max-width:750px)" srcSet={image.mobile}/>
-            <img src={image.thumbnail} alt={name} className='w-[230px] h-[230px] object-cover
-             hover:scale-110 transition-all duration-1000  '/>
+      
+            <img src={image.mobile} alt={name} className={`w-[230px] h-[230px] object-cover
+             hover:scale-110 transition-all duration-1000 ${imageLoad ? 'hidden' : 'block'}`} onLoad={()=>setImageLoad(false)}/>
+             <div className={`dessert_image w-[230px] h-[230px] ${imageLoad ? 'block' : 'hidden'}`}></div>
       </picture>
       </div>
       <div className={` ${item.length!= 0 ? 'bg-[--red]' : 'bg-white hover:bg-[--red] hover:text-white addToCart transition-all duration-300'}  absolute bottom-[24%] left-[13.5%] rounded-full border-[--red] border-[1px] w-[170px] drop-shadow-2xl'`}> 
