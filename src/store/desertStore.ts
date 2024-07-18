@@ -1,7 +1,23 @@
 import { create } from "zustand";
 import {devtools,persist} from 'zustand/middleware'
-
-const initialState ={
+type cartItems = {
+    id:number,
+    name:string,
+    category:string,
+    price:number,
+    image:{
+        thumbnail:string,
+        mobile:string,
+        tablet:string,
+        desktop:string
+    },
+    totalPrice:number,
+    quantity:number
+}
+type cartType ={
+    cart: cartItems[]
+}
+let initialState:cartType={
     cart:[]
 }
 
@@ -14,7 +30,7 @@ const desertStore = (set,get)=>({
        
     },
     addItem:(item)=>{
-        set((state)=>{
+        set((state:cartType)=>{
             const existingCartIndex = state.cart.findIndex(cartItem => cartItem.id == item.id)
             const updatedItems =[...state.cart]
              
@@ -53,8 +69,8 @@ const desertStore = (set,get)=>({
             }
         })
     },
-    clearedAll:(id)=>{
-        set((state)=>{
+    clearedAll:(id:number)=>{
+        set((state:cartType)=>{
             return {
                 cart:state.cart.filter(item=>item.id !== id)
             }
