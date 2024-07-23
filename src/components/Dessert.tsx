@@ -22,6 +22,11 @@ const Dessert = ({ image, name, category, price, id }) => {
           item.length > 0 ? "border-red" : "border-transparent"
         }`}
       >
+         <div
+            className={`dessert_image w-[230px] h-[230px] ${
+              imageLoad ? "block" : "hidden"
+            }`}
+          ></div>
         <picture>
           <source media="(min-width:900px)" srcSet={image.desktop} />
           <source media="(min-width:800px)" srcSet={image.tablet} />
@@ -34,11 +39,7 @@ const Dessert = ({ image, name, category, price, id }) => {
              }`}
             onLoad={() => setImageLoad(false)}
           />
-          <div
-            className={`dessert_image w-[230px] h-[230px] ${
-              imageLoad ? "block" : "hidden"
-            }`}
-          ></div>
+         
         </picture>
       </div>
       <div
