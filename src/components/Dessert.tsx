@@ -107,7 +107,7 @@ const Dessert = ({ image, name, category, price, id }) => {
       </div>
       <span className="text-rose_400 mt-7 block text-md">{category}</span>
       <h2 className="text-rose_900 font-semibold ">{name}</h2>
-      <h4 className="text-red font-semibold">${price.toFixed(2)}</h4>
+      <span className="text-red font-bold">${price.toFixed(2)}</span>
     </motion.div>
   );
 };
